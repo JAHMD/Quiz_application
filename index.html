@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz app</title>
+    <link rel="stylesheet" href="./CSS/normalize.css" />
+    <link rel="stylesheet" href="./CSS/all.min.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <script defer src="./JS/all.min.js" defer></script>
+    <script defer src="./JS/main.js"></script>
+  </head>
+  <body>
+    <div class="loader-container">
+      <div class="loader"><span class="loader-inner"></span></div>
+    </div>
+    <main class="main start-section">
+      <div class="slider-container">
+        <input
+          type="range"
+          name="n-of-questions"
+          class="slider"
+          value="15"
+          min="1"
+          max="30"
+        />
+        <p></p>
+      </div>
+      <div class="start-container">
+        <button class="start-btn">Start Quiz</button>
+        <div class="categories selector">
+          <div class="category selector">
+            <p class="selector">Categories</p>
+            <i class="selector fa-solid fa-caret-right"></i>
+          </div>
+          <ul class="options"></ul>
+        </div>
+      </div>
+
+      <div class="window ins-window">
+        <h2>Some rules</h2>
+        <ul class="instructions">
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <p>You have <span class="number-of-questions"></span> Questions</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <p>
+              You will have only
+              <span>15 seconds</span> per each question.
+            </p>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <p>Once you select your answer, you can submit it.</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <p>You can't select any answer once time goes off.</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <p>You can't exit from the quiz while you are playing.</p>
+          </li>
+        </ul>
+        <footer>
+          <p class="error-msg">Please select a category</p>
+          <div class="buttons">
+            <button class="exit-ins">Exit quiz</button>
+            <button class="continue">Continue</button>
+          </div>
+        </footer>
+      </div>
+    </main>
+    <section class="main quiz-section">
+      <div class="window quiz-window">
+        <header class="header">
+          <h2 class="title">Quiz</h2>
+          <div class="timer-container">
+            Time left<span class="timer">15</span>
+          </div>
+        </header>
+        <div class="question-container">
+          <h4 class="question">
+            <p></p>
+          </h4>
+          <ul class="answers"></ul>
+          <i class="correct fa-regular fa-circle-check"></i>
+          <i class="wrong fa-regular fa-circle-xmark"></i>
+        </div>
+        <footer>
+          <p class="error-msg">Please select an answer</p>
+          <div class="buttons">
+            <button class="submit-btn">Submit</button>
+            <button class="next-btn">Next</button>
+            <button class="result-btn">Result</button>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <section class="main result-section">
+      <div class="window result-window">
+        <div class="icon"><i class="fa-solid fa-gift"></i></div>
+        <p class="heading">You've completed the Quiz!</p>
+        <p class="score">
+          You got <span class="score-val"></span> out of
+          <span class="number-of-questions"></span>
+        </p>
+        <div class="buttons"><button class="quit">Quit Quiz</button></div>
+      </div>
+    </section>
+  </body>
+</html>

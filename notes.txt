@@ -1,0 +1,37 @@
+- questions data
+- HTML, CSS Parts
+  -> start page 
+    => start quiz button
+      -> instructions with [exit and start buttons]
+
+  -> quiz page 
+    => countdown timer & progress bar
+    => question 
+    => 4 choices answers with hover effect
+    => submit button
+      -> correct or wrong answer by highlighting the answer with red or green color and correct or wrong icons 
+      -> next question button
+
+  -> result page 
+    => score 
+    => buttons [try again & home buttons]
+
+- js part
+  -> start quiz button
+    => instructions window
+     -> exit button => start page
+     -> start button => quiz page
+
+  -> quiz page 
+    => countdown timer
+      -> 0
+        => no answers? turn all answers background to red  and show up next question button
+        => active answer? submit it and show the result of it
+    => select an answer -> change its background color to the hover color
+    => submit button
+      -> change the background color to red or green with correct or wrong icon according to the answer
+      -> next question button 
+        => next question data
+
+- features
+  -> questions categories

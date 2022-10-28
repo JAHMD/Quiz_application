@@ -178,7 +178,8 @@ function showQuestionDetails(questions) {
   const questionAnswers = [
     allTheQuestions[qNumber].correct_answer,
     ...allTheQuestions[qNumber].incorrect_answers,
-  ];
+  ].sort(() => Math.random() - 0.5);
+  // questionAnswers = questionAnswers.sort(() => Math.random() - 0.5);
   questionContent.textContent = allTheQuestions[qNumber].question;
   for (let i = 0; i < questionAnswers.length; i++) {
     const answer = document.createElement("li");

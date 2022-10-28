@@ -396,6 +396,19 @@ footer {
 .error-msg.active {
   display: block;
 }
+@media (max-width: 768px) {
+  .start-section .ins-window footer {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .start-section .ins-window footer .buttons {
+    margin: 0 auto;
+    order: -1;
+  }
+  .error-msg.active {
+    margin-top: 0.8rem;
+  }
+}
 .start-section .ins-window footer .buttons {
   display: flex;
   align-items: center;

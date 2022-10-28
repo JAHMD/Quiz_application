@@ -204,9 +204,8 @@ body {
   cursor: pointer;
   box-shadow: var(--shadow);
 }
-
-.start-section .start-btn {
-  margin-right: 1rem;
+.start-section .start-btn,
+.start-section .categories .category {
   padding: var(--main-buttons-padding);
   border: 3px solid white;
   border-radius: var(--border-radius);
@@ -216,7 +215,11 @@ body {
   color: var(--text-color);
   cursor: pointer;
   position: relative;
+  user-select: none;
   transition: var(--main-transition);
+}
+.start-section .start-btn {
+  margin-right: 1rem;
 }
 .start-section .start-btn:hover {
   background-color: var(--h-answers-background-color);
@@ -227,21 +230,17 @@ body {
 }
 .start-section .categories .category {
   width: fit-content;
-  padding: var(--main-buttons-padding);
-  border: 3px solid white;
-  border-radius: var(--border-radius);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  box-shadow: var(--shadow);
-  background-color: white;
-  color: var(--text-color);
-  font-weight: 500;
-  transition: var(--main-transition);
-  user-select: none;
-  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .start-section .start-btn,
+  .start-section .categories .category {
+    --main-buttons-padding: 0.7rem 1rem;
+  }
 }
 .start-section .category:hover {
   background-color: var(--h-answers-background-color);

@@ -68,6 +68,8 @@ body {
   width: 100vw;
   height: 100vh;
   position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -267,6 +269,16 @@ body {
   user-select: none;
   z-index: 1;
 }
+.start-section .categories.active .options {
+  padding: 0.8rem;
+  opacity: 1;
+  height: 219.6px;
+}
+@media (max-width: 768px) {
+  .start-section .categories.active .options {
+    height: 180px;
+  }
+}
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
@@ -278,11 +290,6 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: var(--border-radius);
   background-color: var(--primary-blue-1);
-}
-.start-section .categories.active .options {
-  padding: 0.8rem;
-  opacity: 1;
-  height: 225.6px;
 }
 .start-section .categories .options li {
   padding: 0.8rem;

@@ -122,6 +122,7 @@ resultBtn.addEventListener("click", () => {
   resultSection.classList.add("active");
   scoreField.textContent = score;
 });
+// close result window and get back to the start window
 quitQuizBtn.addEventListener("click", () => {
   selectedCategory = "";
   randomQuestions = [];
@@ -219,6 +220,7 @@ function submitAnswer() {
       correctAnswerElem = answers[i];
     }
   }
+  // if there's a selected answer or counter = 0
   if (selectedAnswer.textContent || !counter) {
     submitState = true;
     qErrorMsg.classList.remove("active");

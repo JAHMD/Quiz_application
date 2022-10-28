@@ -39,7 +39,7 @@ const timer = document.querySelector(".timer-container .timer");
 let numberOfQuestions = slider.value;
 let randomQuestions = [];
 let qNumber = 0;
-let submitState = false;
+let submitState = true;
 let counter = 15;
 let score = 0;
 // start 'start section' ----------------------------------------------
@@ -124,6 +124,7 @@ resultBtn.addEventListener("click", () => {
 });
 // close result window and get back to the start window
 quitQuizBtn.addEventListener("click", () => {
+  score = 0;
   selectedCategory = "";
   randomQuestions = [];
   categoriesMenu.querySelector(".category p").textContent = "Categories";
@@ -221,8 +222,8 @@ function submitAnswer() {
     }
   }
   // if there's a selected answer or counter = 0
-  if (selectedAnswer.textContent || !counter) {
-    submitState = true;
+  if (selectedAnswer.textContent || counter === 0) {
+    submitState = false;
     qErrorMsg.classList.remove("active");
     if (selectedAnswer.textContent) {
       if (selectedAnswer.textContent === correctAnswer) {
@@ -272,13 +273,17 @@ function countDownTimer() {
     if (counter === 5) {
       timer.style.backgroundColor = "red";
     }
-    if (counter === 0) {
-      submitBtn.click();
-    }
-    if (submitState) {
+    if (counter === 0 || !submitState) {
+      if (submitState) {
+        submitBtn.click();
+      }
       clearInterval(timerId);
-      submitState = false;
+      submitState = true;
     }
+    // if (submitState) {
+    //   clearInterval(timerId);
+    //   submitState = false;
+    // }
   }, 1000);
   loading.classList.add("close");
   loading.firstElementChild.style.display = "none";

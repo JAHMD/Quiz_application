@@ -47,7 +47,7 @@ sliderValue.textContent = slider.value;
 insNumberOfQuestions.textContent = slider.value;
 rNumberOfQuestionsField.textContent = slider.value;
 slider.addEventListener("input", function () {
-  numberOfQuestions = slider.value;
+  numberOfQuestions = this.value;
   sliderValue.textContent = this.value;
   insNumberOfQuestions.textContent = this.value;
   rNumberOfQuestionsField.textContent = this.value;
@@ -277,8 +277,8 @@ function countDownTimer() {
       clearInterval(timerId);
       submitState = false;
     }
-    loading.classList.add("close");
-    loading.firstElementChild.style.display = "none";
-    quizSection.classList.add("active");
   }, 1000);
+  loading.classList.add("close");
+  loading.firstElementChild.style.display = "none";
+  quizSection.classList.add("active");
 }

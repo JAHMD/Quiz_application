@@ -14,7 +14,6 @@ const insWindow = document.querySelector(".start-section .ins-window");
 const insNumberOfQuestions = document.querySelector(
   ".start-section .ins-window .number-of-questions"
 );
-const insErrorMsg = document.querySelector(".ins-window .error-msg");
 const qErrorMsg = document.querySelector(".quiz-window .error-msg");
 const correct = document.querySelector(".correct");
 const wrong = document.querySelector(".wrong");
@@ -23,6 +22,7 @@ let selectedCategory = "";
 const loading = document.querySelector(".loader-container");
 const quizSection = document.querySelector(".quiz-section");
 const quizWindow = document.querySelector(".quiz-window");
+const quizCategoryTitle = document.querySelector(".selected-cat");
 const questionContent = document.querySelector(".question p");
 const answersContainer = document.querySelector(".question-container .answers");
 const submitBtn = document.querySelector(".quiz-window .submit-btn");
@@ -64,7 +64,6 @@ exitQuizBtn.addEventListener("click", () => {
   categoriesMenu.style.display = "block";
   insWindow.classList.remove("active");
   insWindow.classList.add("close");
-  insErrorMsg.classList.remove("active");
 });
 // hide/appear categories menu
 document.body.addEventListener("click", (e) => {
@@ -83,18 +82,20 @@ categoriesMenu.addEventListener("click", (e) => {
       e.target.textContent;
     selectedCategory = e.target.textContent;
   }
+  if (selectedCategory) {
+    startQuizBtn.style.display = "block";
+  }
 });
 // continue button's job
 continueBtn.addEventListener("click", () => {
   if (selectedCategory) {
+    quizCategoryTitle.innerText = selectedCategory;
     startSection.classList.add("close");
     loading.classList.remove("close");
     loading.firstElementChild.style.display = "block";
     insWindow.classList.remove("active");
     insWindow.classList.remove("close");
     getRandomQuestions();
-  } else {
-    insErrorMsg.classList.add("active");
   }
 });
 // start 'quiz section' ----------------------------------------------
@@ -127,10 +128,10 @@ quitQuizBtn.addEventListener("click", () => {
   score = 0;
   selectedCategory = "";
   randomQuestions = [];
+  startQuizBtn.style.display = "none";
   categoriesMenu.querySelector(".category p").textContent = "Categories";
   resultSection.classList.remove("active");
   startSection.classList.remove("close");
-  startQuizBtn.style.display = "block";
   categoriesMenu.style.display = "block";
 });
 // getting the categories and putting them in the categories menu
@@ -280,10 +281,6 @@ function countDownTimer() {
       clearInterval(timerId);
       submitState = true;
     }
-    // if (submitState) {
-    //   clearInterval(timerId);
-    //   submitState = false;
-    // }
   }, 1000);
   loading.classList.add("close");
   loading.firstElementChild.style.display = "none";

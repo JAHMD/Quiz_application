@@ -481,7 +481,7 @@ footer {
   margin-bottom: 0.5rem;
 }
 .quiz-section .header .timer-container {
-  width: fit-content;
+  min-width: fit-content;
   padding: var(--alt-buttons-padding);
   border-radius: var(--border-radius);
   display: flex;

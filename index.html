@@ -16,25 +16,27 @@
       <div class="loader"><span class="loader-inner"></span></div>
     </div>
     <main class="main start-section">
-      <div class="slider-container">
-        <input
-          type="range"
-          name="n-of-questions"
-          class="slider"
-          value="15"
-          min="1"
-          max="30"
-        />
-        <p></p>
-      </div>
       <div class="start-container">
-        <button class="start-btn">Start Quiz</button>
-        <div class="categories selector">
-          <div class="category selector">
-            <p class="selector">Categories</p>
-            <i class="selector fa-solid fa-caret-right"></i>
+        <div class="slider-container">
+          <input
+            type="range"
+            name="n-of-questions"
+            class="slider"
+            value="5"
+            min="1"
+            max="30"
+          />
+          <p></p>
+        </div>
+        <div class="buttons-container">
+          <button class="start-btn">Start Quiz</button>
+          <div class="categories selector">
+            <div class="category selector">
+              <p class="selector">Categories</p>
+              <i class="selector fa-solid fa-caret-right"></i>
+            </div>
+            <ul class="options"></ul>
           </div>
-          <ul class="options"></ul>
         </div>
       </div>
 
@@ -66,7 +68,6 @@
           </li>
         </ul>
         <footer>
-          <p class="error-msg">Please select a category</p>
           <div class="buttons">
             <button class="exit-ins">Exit quiz</button>
             <button class="continue">Continue</button>
@@ -77,9 +78,10 @@
     <section class="main quiz-section">
       <div class="window quiz-window">
         <header class="header">
-          <h2 class="title">Quiz</h2>
+          <h2 class="title">Quiz: <span class="selected-cat"></span></h2>
           <div class="timer-container">
-            Time left<span class="timer">15</span>
+            <p>Time left</p>
+            <span class="timer">15</span>
           </div>
         </header>
         <div class="question-container">

@@ -82,8 +82,8 @@ body {
   width: 50px;
   aspect-ratio: 1;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
   outline: 4px solid #fff;
   opacity: 1;
   animation: loader alternate 2s infinite ease-in;
@@ -162,47 +162,80 @@ body {
   display: none;
 }
 .start-section .start-container {
-  margin-top: 2rem;
+  min-width: 300.56px;
+  max-width: 370px;
   display: flex;
   align-self: center;
+  flex-wrap: wrap;
 }
-.slider-container {
-  position: relative;
-  width: 250px;
+@media (max-width: 768px) {
+  .start-section .start-container {
+    max-width: 340px;
+  }
+}
+.start-container .slider-container {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: var(--main-buttons-padding);
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  box-shadow: var(--shadow);
+  background: white;
 }
-.slider-container p {
+.start-container .slider-container p {
   width: 40px;
   text-align: center;
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 0;
+  border: var(--main-border);
   border-radius: var(--border-radius);
   background-color: white;
   color: var(--text-color);
   font-weight: 600;
-  box-shadow: var(--shadow);
 }
-.slider {
+.start-container .slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 180px;
-  height: 0.5rem;
+  width: 240px;
+  height: 0.6rem;
   border-radius: 0.5rem;
-  background: #fff;
+  background: var(--h-answers-background-color);
   outline: none;
-  box-shadow: var(--shadow);
+  overflow: hidden;
 }
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
+.start-container .slider::-webkit-slider-thumb {
   appearance: none;
-  width: 20px;
+  width: 11px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--primary-blue-1);
-  border: 3px solid white;
+  border: 2px solid white;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 4px 2px hsl(0deg 0% 0% / 10%),
+    -118px 0 0 115px var(--primary-blue-1);
+}
+.start-section .buttons-container {
+  flex: 1;
+  min-width: fit-content;
+  display: flex;
+}
+.start-section .start-btn {
+  display: none;
+  margin-right: 1rem;
+}
+.start-section .categories {
+  flex: 1;
+  position: relative;
+}
+.start-section .categories .category {
+  min-width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
 }
 .start-section .start-btn,
 .start-section .categories .category {
@@ -218,27 +251,12 @@ body {
   user-select: none;
   transition: var(--main-transition);
 }
-.start-section .start-btn {
-  margin-right: 1rem;
-}
 .start-section .start-btn:hover {
   background-color: var(--h-answers-background-color);
   border-color: var(--h-answers-background-color);
 }
-.start-section .categories {
-  position: relative;
-}
-.start-section .categories .category {
-  width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-}
 @media (max-width: 768px) {
-  .start-section .start-btn,
-  .start-section .categories .category {
+  .start-container {
     --main-buttons-padding: 0.7rem 1rem;
   }
 }
@@ -404,9 +422,6 @@ footer {
     margin: 0 auto;
     order: -1;
   }
-  .error-msg.active {
-    margin-top: 0.8rem;
-  }
 }
 .start-section .ins-window footer .buttons {
   display: flex;
@@ -458,16 +473,24 @@ footer {
   border-bottom: var(--main-border);
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  column-gap: 1rem;
 }
 .quiz-section .header .title {
   font-weight: 900;
   font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 .quiz-section .header .timer-container {
+  width: fit-content;
   padding: var(--alt-buttons-padding);
   border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
   background-color: var(--h-answers-background-color);
+}
+.quiz-section .header .timer-container p {
+  width: 100%;
 }
 .quiz-section .header .timer-container .timer {
   width: 37px;
@@ -480,6 +503,18 @@ footer {
   color: white;
   font-weight: 500;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .quiz-section .header {
+    flex-direction: column;
+  }
+  .quiz-section .header .title {
+    order: 1;
+  }
+  .quiz-section .header .timer-container {
+    margin-left: auto;
+    margin-bottom: 1rem;
+  }
 }
 .quiz-section .question-container {
   padding: var(--main-padding);
